@@ -13,12 +13,6 @@
     <script src="./js/js.js"></script>
 </head>
 
-<style>
-     .t{
-        display: flex;
-        justigy
-    }
-</style>
 
 <body>
     <div id="cover" style="display:none;">
@@ -48,7 +42,7 @@
                             網站首頁 </div>
                     </a>
                 </div>
-                <div class="dbor" style="margin:3px; width:95%; height:20%; line-height:100px;">
+                <div class="dbor" style="margin:3px; width:95%; height:21.5%; line-height:100px;">
                     <span class="t">進站總人數 :
                         1 </span>
                 </div>
@@ -60,11 +54,11 @@
 	        ?>
             <div class="di di ad" style="height:540px; width:23%; padding:0px; margin-left:22px; float:left; ">
                 <!--右邊-->
-                <button style="width:100%; margin-left:auto; margin-right:auto; margin-top:2px; height:50px;"
+                <button style="width:90%; margin-left:auto; margin-right:auto; margin-top:2px; height:50px;"
                     onclick="lo(&#39;?do=admin&#39;)">管理登入</button>
-                <div style="width:89%; height:480px;" class="dbor">
+                <div style="width:80%; height:480px;" class="dbor">
                     <span class="t botli">校園映象區</span>
-                    <div class='cent' id="up" onclick="pp(1)">
+                <div class='cent' id="up" onclick="pp(1)" style="margin-top:10px">
                         <img src="./icon/up.jpg" alt="" srcset="">
                     </div>
                     <?php
@@ -103,8 +97,8 @@
         </div>
         <div style="clear:both;"></div>
         <div
-            style="width:1024px; left:0px; position:relative; background:#FC3; margin-top:4px; height:123px; display:block;">
-            <span class="t" style="line-height:123px;"></span>
+        style="width:1024px; left:0px; position:relative; background:#ddb280; margin-top:4px; height:123px; display:block;">
+        <span class="t" style="line-height:123px;"></span>
         </div>
     </div>
 
