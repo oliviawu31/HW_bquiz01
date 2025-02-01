@@ -1,7 +1,7 @@
 <?php
 
 class DB{
-    protected $dsn="mysql:host=localhost;charset=utf8;dbname=db20";
+    protected $dsn="mysql:host=localhost;charset=utf8;dbname=hw";
     protected $pdo;
     protected $table;
 
@@ -59,7 +59,6 @@ class DB{
             unset($array['id']);
             $set=$this->a2s($array);
             $sql ="UPDATE $this->table SET ".join(',',$set)." where `id`='$id'";
-                
         }else{
             //insert
             $cols=array_keys($array);
@@ -146,7 +145,7 @@ class DB{
 }
 
 function q($sql){
-    $pdo=new PDO("mysql:host=localhost;charset=utf8;dbname=db20",'root','');
+    $pdo=new PDO("mysql:host=localhost;charset=utf8;dbname=hw",'root','');
     return $pdo->query($sql)->fetchAll();
 }
 
@@ -160,13 +159,10 @@ function to($url){
     header("location:".$url);
 }
 
-
 $Title=new DB('titles');
 $Ad=new DB('ads');
-$Image=new DB('images');
 $Mvim=new DB('mvims');
+$Image=new DB('images');
 $News=new DB('news');
 $Admin=new DB('admin');
 $Menu=new DB('menus');
-$Total=new DB('total');
-$Bottom=new DB('bottom');

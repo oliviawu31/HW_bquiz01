@@ -1,19 +1,18 @@
-<div class="di"
-    style="height:540px; border:#999 1px solid; width:76.5%; margin:2px 0px 0px 0px; float:left; position:relative; left:20px;">
+<div class="di">
     <!--正中央-->
     <table width="100%">
         <tbody>
             <tr>
-                <td style="width:70%;font-weight:800; border:#333 1px solid; border-radius:3px;" class="cent"><a
-                        href="?do=admin" style="color:#000; text-decoration:none;">後台管理區</a></td>
-                <td><button onclick="document.cookie=&#39;user=&#39;;location.replace(&#39;?&#39;)"
-                        style="width:99%; margin-right:2px; height:50px;">管理登出</button></td>
+                <td style="width:100%; height:50px; font-weight:800; border:rgb(109, 64, 32) 1px solid; border-radius:3px;" class="cent"><a
+                        href="?do=admin" style="color: rgb(109, 64, 32); text-decoration:none;">後台管理區</a>
+                    </td>
+            
             </tr>
         </tbody>
     </table>
-    <div style="width:99%; height:87%; margin:auto; overflow:auto; border:#666 1px solid;">
+    <div style="width:99%; height:87%; margin:auto; overflow:auto; border:rgb(109, 64, 32) 1px solid; border-radius:3px;">
         <p class="t cent botli">動態文字廣告管理</p>
-        <form method="post" action="./api/edit_<?=$do;?>.php">
+        <form method="post" target="back" action="./api/edit.php">
             <table width="100%">
                 <tbody>
                     <tr class="yel">
@@ -24,9 +23,8 @@
                     <?php
                     $rows=$Ad->all();
                     foreach($rows as $row){
-                    ?>
+                        ?>
                     <tr>
-                        <!-- [] =>表示多筆資料 -->
                         <td>
                             <input type="text" name="text[]" value="<?=$row['text'];?>" style="width:97%">
                         </td>
@@ -37,24 +35,27 @@
                         <td>
                             <input type="checkbox" name="del[]" value="<?=$row['id'];?>">
                         </td>
-
-                        <!-- 因為須給對應刪除的欄位有一個id -->
                         <input type="hidden" name="id[]" value="<?=$row['id'];?>">
                     </tr>
-                    <?php
-                    }
-                    ?>
+                    <?php    
+
+
+                }
+                ?>
+
+
+
                 </tbody>
             </table>
             <table style="margin-top:40px; width:70%;">
                 <tbody>
                     <tr>
-                        <td width="200px">
-                            <input type="button"
+                        <td width="200px"><input type="button"
                                 onclick="op(&#39;#cover&#39;,&#39;#cvr&#39;,&#39;./modal/<?=$do;?>.php?table=<?=$do;?>&#39;)"
                                 value="新增動態文字廣告">
                         </td>
                         <td class="cent">
+                            <input type="hidden" name="table" value="<?=$do;?>">
                             <input type="submit" value="修改確定">
                             <input type="reset" value="重置">
                         </td>
@@ -64,4 +65,3 @@
 
         </form>
     </div>
-</div>
