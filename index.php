@@ -1,3 +1,5 @@
+<?php include_once "api/db.php";?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -11,8 +13,15 @@
     <script src="./js/js.js"></script>
 </head>
 
+<style>
+     .t{
+        display: flex;
+        justigy
+    }
+</style>
+
 <body>
-    <div id="cover" style="display:none; ">
+    <div id="cover" style="display:none;">
         <div id="coverr">
             <a style="position:absolute; right:3px; top:4px; cursor:pointer; z-index:9999;"
                 onclick="cl(&#39;#cover&#39;)">X</a>
@@ -21,8 +30,8 @@
     </div>
     <iframe style="display:none;" name="back" id="back"></iframe>
     <div id="main">
-        <a title="" href="./home_files/home.htm">
-            <div class="ti" style="background:url(&#39;use/&#39;); background-size:cover;"></div>
+        <a title="" href="./index.php">
+            <div class="ti" style="background:url('./upload/<?=$Title->find(['sh' => 1])['img'];?>'); background-size:cover;"></div>
             <!--標題-->
         </a>
         <div id="ms">
@@ -30,6 +39,14 @@
                 <div id="menuput" class="dbor">
                     <!--主選單放此-->
                     <span class="t botli">主選單區</span>
+                    <a style="text-decoration: none; "href="?do=login">
+                        <div class="main_menu">
+                            管理登入 </div>
+                    </a>
+                    <a style="text-decoration: none; "href="?do=main">
+                        <div class="main_menu">
+                            網站首頁 </div>
+                    </a>
                 </div>
                 <div class="dbor" style="margin:3px; width:95%; height:20%; line-height:100px;">
                     <span class="t">進站總人數 :
@@ -37,18 +54,30 @@
                 </div>
             </div>
             <?php
-			$do=$_GET['do']??'main';
-			$file="./front/{$do}.php";
-			include (file_exists($file))?$file:"./front/main.php";
-			
-			
-	?>
+                $do=$_GET['do']??'main';
+                $file="./front/{$do}.php";
+                include (file_exists($file))?$file:"./front/main.php";
+	        ?>
             <div class="di di ad" style="height:540px; width:23%; padding:0px; margin-left:22px; float:left; ">
                 <!--右邊-->
                 <button style="width:100%; margin-left:auto; margin-right:auto; margin-top:2px; height:50px;"
                     onclick="lo(&#39;?do=admin&#39;)">管理登入</button>
                 <div style="width:89%; height:480px;" class="dbor">
                     <span class="t botli">校園映象區</span>
+                    <div class='cent' id="up" onclick="pp(1)">
+                        <img src="./icon/up.jpg" alt="" srcset="">
+                    </div>
+                    <?php
+                        $images = $Image->all();
+                        foreach($images as $index => $image){
+                            echo "<div class='im' id='ssaa{$index}' style='display:flex; justify-content: center;'>";
+                            echo "<img src='./upload/{$image['img']}' style='width:150px; height:103px; margin: 10px 0px '>";
+                            echo "</div>";
+                        }
+                    ?>
+                    <div class='cent' id="dn" onclick="pp(2)">
+                        <img src="./icon/dn.jpg" alt="" srcset="">
+                    </div>
                     <script>
                     var nowpage = 0,
                         num = 0;
