@@ -1,9 +1,9 @@
 // JavaScript Document
 $(document).ready(function (e) {
-    $(".mainmu").mouseover(function () {
+    $(".main_menu").mouseover(function () {
         $(this).children(".mw").stop().show();
     });
-    $(".mainmu").mouseout(function () {
+    $(".main_menu").mouseout(function () {
         $(this).children(".mw").hide();
     });
 });

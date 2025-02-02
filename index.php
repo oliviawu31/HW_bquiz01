@@ -33,22 +33,29 @@
                 <div id="menuput" class="dbor">
                     <!--主選單放此-->
                     <span class="t botli">主選單區</span>
-                    <a style="text-decoration: none; " href="?do=login">
-                        <div class="main_menu">
-                            管理登入 </div>
-                    </a>
-                    <a style="text-decoration: none; " href="?do=main">
-                        <div class="main_menu"> 網站首頁 </div>
-                    </a>
+                    <div class="main_menu">
+                        <a style="text-decoration: none;" href="?do=login">管理登入</a>
+                        <div class="mw"></div>
+                    </div>
+                    <div class="main_menu">
+                        <a style="text-decoration: none;" href="?do=main">
+                            網站首頁
+                        </a>
+                        <div class="mw">
+                            <a style="text-decoration: none;" href="?do=news">
+                                <div class="mainmu2">更多資訊</div>
+                            </a>
+                        </div>
+                    </div>
                 </div>
                 <div class="dbor" style="margin:3px; width:95%; height:21.5%; line-height:100px;">
                     <span class="t">進站總人數 : 1 </span>
                 </div>
             </div>
             <?php
-            $do = $_GET['do'] ?? 'main';
-            $file = "./front/{$do}.php";
-            include (file_exists($file)) ? $file : "./front/main.php";
+                $do = $_GET['do'] ?? 'main';
+                $file = "./front/{$do}.php";
+                include (file_exists($file)) ? $file : "./front/main.php";
             ?>
             <div class="di di ad" style="height:540px; width:23%; padding:0px; margin-left:22px; float:left; ">
                 <!--右邊-->
