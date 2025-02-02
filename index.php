@@ -1,4 +1,6 @@
-<?php include_once "api/db.php"; ?>
+<?php include_once "api/db.php";
+session_start() 
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -53,14 +55,19 @@
                 </div>
             </div>
             <?php
-                $do = $_GET['do'] ?? 'main';
-                $file = "./front/{$do}.php";
-                include (file_exists($file)) ? $file : "./front/main.php";
+            $do = $_GET['do'] ?? 'main';
+            $file = "./front/{$do}.php";
+            include (file_exists($file)) ? $file : "./front/main.php";
             ?>
             <div class="di di ad" style="height:540px; width:23%; padding:0px; margin-left:22px; float:left; ">
                 <!--右邊-->
-                <button style="width:90%; margin-left:auto; margin-right:auto; margin-top:2px; height:50px;"
-                    onclick="lo(&#39;?do=admin&#39;)">管理登入</button>
+                <?php if (!$_SESSION['login']): ?>
+                    <button style="width:90%; margin-left:auto; margin-right:auto; margin-top:2px; height:50px;"
+                        onclick="lo(&#39;?do=login&#39;)">管理登入</button>
+                <?php else: ?>
+                    <button style="width:90%; margin-left:auto; margin-right:auto; margin-top:2px; height:50px;"
+                        onclick="logout()">管理登出</button>
+                <?php endif ?>
                 <div style="width:80%; height:480px;" class="dbor">
                     <span class="t botli">校園映象區</span>
                     <div class='cent' id="up" onclick="pp(1)" style="margin-top:10px">

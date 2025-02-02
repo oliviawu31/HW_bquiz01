@@ -3,8 +3,11 @@
     <table width="100%">
         <tbody>
             <tr>
-                <td style="width:100%; height:50px; font-weight:800; border:rgb(109, 64, 32) 1px solid; border-radius:3px;" class="cent"><a
+                <td style="width: 90%; height:50px; font-weight:800; border:rgb(109, 64, 32) 1px solid; border-radius:3px;" class="cent"><a
                         href="?do=admin" style="color: rgb(109, 64, 32); text-decoration:none;">後台管理區</a>
+                </td>
+                <td>
+                    <button style="width:90%; height:50px;" onclick="logout()">登出</button>
                 </td>
             </tr>
         </tbody>

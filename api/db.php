@@ -1,5 +1,7 @@
 <?php
 
+session_start();
+
 class DB
 {
     protected $dsn = "mysql:host=localhost;charset=utf8;dbname=hw";
@@ -173,6 +175,7 @@ function dd($array)
 function to($url)
 {
     header("location:" . $url);
+    exit;
 }
 
 $Title = new DB('titles');
@@ -182,3 +185,4 @@ $Image = new DB('images');
 $News = new DB('news');
 $Admin = new DB('admin');
 $Menu = new DB('menus');
+$Total = new DB('total');

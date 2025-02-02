@@ -1,4 +1,12 @@
-﻿<?php include_once "api/db.php"; ?>
+﻿<?php include_once "api/db.php";
+session_start();
+
+if (!isset($_SESSION['login'])) {
+    to("index.php");
+    echo "請從登入頁登入<a href='index.php?do=login'>管理登入</a>";
+    exit();
+}
+?>
 <!DOCTYPE html
     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <!-- saved from url=(0068)?do=admin&redo=title -->
@@ -35,36 +43,28 @@
                     <!--主選單放此-->
                     <span class="t botli">後台管理選單</span>
                     <a style="text-decoration: none; " href="?do=title">
-                        <div class="main_menu">
-                            網站標題管理 </div>
+                        <div class="main_menu">網站標題管理 </div>
                     </a>
                     <a style="text-decoration: none; " href="?do=ad">
-                        <div class="main_menu">
-                            動態文字廣告管理 </div>
+                        <div class="main_menu">動態文字廣告管理 </div>
                     </a>
                     <a style="text-decoration: none; " href="?do=mvim">
-                        <div class="main_menu">
-                            動畫圖片管理 </div>
+                        <div class="main_menu">動畫圖片管理 </div>
                     </a>
                     <a style="text-decoration: none; " href="?do=image">
-                        <div class="main_menu">
-                            輪播圖管理 </div>
+                        <div class="main_menu">輪播圖管理 </div>
                     </a>
                     <a style="text-decoration: none; " href="?do=total">
-                        <div class="main_menu">
-                            進站總人數管理 </div>
+                        <div class="main_menu">進站總人數管理 </div>
                     </a>
                     <a style="text-decoration: none; " href="?do=bottom">
-                        <div class="main_menu">
-                            頁尾版權資料管理 </div>
+                        <div class="main_menu">頁尾版權資料管理 </div>
                     </a>
                     <a style="text-decoration: none; " href="?do=news">
-                        <div class="main_menu">
-                            最新消息資料管理 </div>
+                        <div class="main_menu">最新消息資料管理 </div>
                     </a>
                     <a style="text-decoration: none; " href="?do=admin">
-                        <div class="main_menu">
-                            管理者帳號管理 </div>
+                        <div class="main_menu">管理者帳號管理 </div>
                     </a>
                 </div>
                 <div class="dbor" style="margin:3px; width:95%; height:20%; line-height:100px;">
