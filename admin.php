@@ -63,10 +63,14 @@ $total = $Total->find(1)['total'];
                     <a style="text-decoration: none; " href="?do=image">
                         <div class="main_menu">輪播圖管理 </div>
                     </a>
-                    <a style="color:#000; font-size:13px; text-decoration:none;" href="?do=total">
+                    <a style="color:#000; font-size:13px; text-decoration:none;" href="#"
+                    onclick="op(&#39;#cover&#39;,&#39;#cvr&#39;,&#39;./modal/view.php?table=<?= $do; ?>&#39;)"
+                    >
                         <div class="main_menu">進站總人數管理 </div>
                     </a>
-                    <a style="color:#000; font-size:13px; text-decoration:none;" href="?do=bottom">
+                    <a style="color:#000; font-size:13px; text-decoration:none;" href="#"
+                    onclick="op(&#39;#cover&#39;,&#39;#cvr&#39;,&#39;./modal/bottom.php?table=<?= $do; ?>&#39;)"
+                    >
                         <div class="main_menu">頁尾版權資料管理 </div>
                     </a>
                     <a style="text-decoration: none; " href="?do=news">
