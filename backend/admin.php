@@ -3,16 +3,17 @@
     <table width="100%">
         <tbody>
             <tr>
-                <td style="width:90%; height:50px; font-weight:800; border:rgb(109, 64, 32) 1px solid; border-radius:3px;" class="cent"><a
-                        href="?do=admin" style="color: rgb(109, 64, 32); text-decoration:none;">後台管理區</a>
+                <td style="width:90%; height:50px; font-weight:800; border:rgb(109, 64, 32) 1px solid; border-radius:3px;"
+                    class="cent"><a href="?do=admin" style="color: rgb(109, 64, 32); text-decoration:none;">後台管理區</a>
                 </td>
                 <td>
-                    <button style="width:90%; height:50px;" onclick="logout()">登出</button>
+                    <button style="width:80%; height:50px;" onclick="logout()">登出</button>
                 </td>
             </tr>
         </tbody>
     </table>
-    <div style="width:99%; height:87%; margin:auto; overflow:auto; border:rgb(109, 64, 32) 1px solid; border-radius:3px;">
+    <div
+        style="width:99%; height:87%; margin:auto; overflow:auto; border:rgb(109, 64, 32) 1px solid; border-radius:3px;">
         <p class="t cent botli"> 管理者帳號管理</p>
         <form method="post" target="back" action="./api/edit.php">
             <table width="100%">
@@ -26,18 +27,18 @@
                     $rows = $Admin->all();
                     foreach ($rows as $row) {
                     ?>
-                        <tr>
-                            <td>
-                                <input type="text" name="acc[]" value="<?= $row['acc']; ?>" style="width:97%">
-                            </td>
-                            <td>
-                                <input type="password" name="pw[]" value="<?= $row['pw']; ?>">
-                            </td>
-                            <td>
-                                <input type="checkbox" name="del[]" value="<?= $row['id']; ?>">
-                            </td>
-                            <input type="hidden" name="id[]" value="<?= $row['id']; ?>">
-                        </tr>
+                    <tr>
+                        <td>
+                            <input type="text" name="acc[]" value="<?= $row['acc']; ?>" style="width:97%">
+                        </td>
+                        <td>
+                            <input type="password" name="pw[]" value="<?= $row['pw']; ?>">
+                        </td>
+                        <td>
+                            <input type="checkbox" name="del[]" value="<?= $row['id']; ?>">
+                        </td>
+                        <input type="hidden" name="id[]" value="<?= $row['id']; ?>">
+                    </tr>
                     <?php
                     }
                     ?>

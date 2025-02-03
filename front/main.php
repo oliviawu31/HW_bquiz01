@@ -1,8 +1,19 @@
 <div class="di"
-    style="height:540px; border:#8c632d 1px solid; width:53.5%; margin:2px 0px 0px 0px;  float:left; position:relative; left:30px;">
-    <marquee scrolldelay="120" direction="left" style="position:absolute; width:100%; height:40px;">
-    </marquee>
-    <div style="height:32px; text-align:center; display:block; background-color:#0C3;">跑馬燈區</div>
+    style="height:540px; border:#8c632d 1px solid; width:53.5%; margin:2px 0px 0px 0px;  float:left; position:relative; left:30px; ">
+
+    <div class="marquee" style="padding-top:20px;">
+        <marquee scrolldelay="120" direction="left" style="position:absolute; width:80%; height:30px; color:#8c632d;">
+            <?php
+        $ads=$Ad->all(['sh'=>1]);
+        foreach($ads as $ad){
+            echo $ad['text'];
+            echo str_repeat("&nbsp;",10);
+        }
+        
+        ?>
+        </marquee>
+    </div>
+    <div style="height:30px; text-align:center; display:block;"></div>
     <!--正中央-->
     <div style="width:95%; padding:2px; height:190px; margin-top:10px; padding:5px 10px 5px 10px;  position:relative;">
         <h3 class="t botli">最新消息區</h3>
@@ -48,17 +59,17 @@
             style="position: absolute; width: 350px; min-height: 100px; background-color: rgb(255, 255, 204); top: 50px; left: 130px; z-index: 99; display: none; padding: 5px; border: 3px double rgb(255, 153, 0); background-position: initial initial; background-repeat: initial initial;">
         </div>
         <script>
-            $(".ssaa li").hover(
-                function() {
-                    $("#altt").html("<pre>" + $(this).children(".all").html() + "</pre>")
-                    $("#altt").show()
-                }
-            )
-            $(".ssaa li").mouseout(
-                function() {
-                    $("#altt").hide()
-                }
-            )
+        $(".ssaa li").hover(
+            function() {
+                $("#altt").html("<pre>" + $(this).children(".all").html() + "</pre>")
+                $("#altt").show()
+            }
+        )
+        $(".ssaa li").mouseout(
+            function() {
+                $("#altt").hide()
+            }
+        )
         </script>
     </div>
 </div>

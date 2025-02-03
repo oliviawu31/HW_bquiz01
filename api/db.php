@@ -9,6 +9,7 @@ class DB
     protected $table;
 
     function __construct($table)
+    
     {
         $this->table = $table;
         $this->pdo = new PDO($this->dsn, 'root', '');
@@ -186,3 +187,4 @@ $News = new DB('news');
 $Admin = new DB('admin');
 $Menu = new DB('menus');
 $Total = new DB('total');
+$Bottom=new DB('bottom');

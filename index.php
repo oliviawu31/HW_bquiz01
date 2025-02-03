@@ -22,10 +22,11 @@
             <div id="cvr" style="position:absolute; width:99%; height:100%; margin:auto; z-index:9898;"></div>
         </div>
     </div>
-    <iframe style="display:none;" name="back" id="back"></iframe>
     <div id="main">
         <a title="" href="./index.php">
-            <div class="ti" style="background:url('./upload/<?= $Title->find(['sh' => 1])['img']; ?>'); background-size:cover;"></div>
+            <div class="ti"
+                style="background:url('./upload/<?= $Title->find(['sh' => 1])['img']; ?>'); background-size:cover;">
+            </div>
             <!--標題-->
         </a>
         <div id="ms">
@@ -49,7 +50,7 @@
                     </div>
                 </div>
                 <div class="dbor" style="margin:3px; width:95%; height:21.5%; line-height:100px;">
-                    <span class="t">進站總人數 : 1 </span>
+                    <span class="t">進站總人數 : <?=$Total->find(1)['total'];?></span>
                 </div>
             </div>
             <?php
@@ -59,12 +60,12 @@
             ?>
             <div class="di di ad" style="height:540px; width:23%; padding:0px; margin-left:22px; float:left; ">
                 <!--右邊-->
-                <?php if (!$_SESSION['login']): ?>
-                    <button style="width:90%; margin-left:auto; margin-right:auto; margin-top:2px; height:50px;"
-                        onclick="lo(&#39;?do=login&#39;)">管理登入</button>
+                <?php if(!isset($_SESSION['user'])):?>
+                <button style="width:90%; margin-left:auto; margin-right:auto; margin-top:2px; height:50px;"
+                    onclick="lo(&#39;?do=login&#39;)">管理登入</button>
                 <?php else: ?>
-                    <button style="width:90%; margin-left:auto; margin-right:auto; margin-top:2px; height:50px;"
-                        onclick="logout()">管理登出</button>
+                <button style="width:90%; margin-left:auto; margin-right:auto; margin-top:2px; height:50px;"
+                    onclick="logout()">管理登出</button>
                 <?php endif ?>
                 <div style="width:80%; height:480px;" class="dbor">
                     <span class="t botli">校園映象區</span>
@@ -83,24 +84,24 @@
                         <img src="./icon/dn.jpg" alt="" srcset="">
                     </div>
                     <script>
-                        var nowpage = 0,
-                            num = 0;
+                    var nowpage = 0,
+                        num = 0;
 
-                        function pp(x) {
-                            var s, t;
-                            if (x == 1 && nowpage - 1 >= 0) {
-                                nowpage--;
-                            }
-                            if (x == 2 && (nowpage + 1) * 3 <= num * 1 + 3) {
-                                nowpage++;
-                            }
-                            $(".im").hide()
-                            for (s = 0; s <= 2; s++) {
-                                t = s * 1 + nowpage * 1;
-                                $("#ssaa" + t).show()
-                            }
+                    function pp(x) {
+                        var s, t;
+                        if (x == 1 && nowpage - 1 >= 0) {
+                            nowpage--;
                         }
-                        pp(1)
+                        if (x == 2 && (nowpage + 1) * 3 <= num * 1 + 3) {
+                            nowpage++;
+                        }
+                        $(".im").hide()
+                        for (s = 0; s <= 2; s++) {
+                            t = s * 1 + nowpage * 1;
+                            $("#ssaa" + t).show()
+                        }
+                    }
+                    pp(1)
                     </script>
 
                 </div>
@@ -109,7 +110,7 @@
         <div style="clear:both;"></div>
         <div
             style="width:1024px; left:0px; position:relative; background:#ddb280; margin-top:4px; height:123px; display:block;">
-            <span class="t" style="line-height:123px;"></span>
+            <span class="t" style="line-height:123px;"><?=$Bottom->find(1)['bottom'];?></span>
         </div>
     </div>
 
