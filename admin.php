@@ -1,11 +1,22 @@
 ﻿<?php include_once "api/db.php";
-session_start();
 
 if (!isset($_SESSION['login'])) {
     to("index.php");
     echo "請從登入頁登入<a href='index.php?do=login'>管理登入</a>";
     exit();
 }
+
+
+if(!isset($_SESSION['view'])) {
+    $_SESSION['view'] = 1;
+} else {
+    $total = $Total->find(1);
+    $total['total']++;
+    $Total->save($total);
+}
+
+
+$total = $Total->find(1)['total'];
 ?>
 <!DOCTYPE html
     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -68,8 +79,7 @@ if (!isset($_SESSION['login'])) {
                     </a>
                 </div>
                 <div class="dbor" style="margin:3px; width:95%; height:20%; line-height:100px;">
-                    <span class="t">進站總人數 :
-                        1 </span>
+                    <span class="t">進站總人數 :<?php $total['total'];?></span>
                 </div>
             </div>
             <?php

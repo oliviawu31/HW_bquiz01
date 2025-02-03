@@ -1,6 +1,4 @@
-<?php include_once "api/db.php";
-session_start() 
-?>
+<?php include_once "api/db.php";?>
 
 <!DOCTYPE html>
 <html lang="en">
