@@ -1,4 +1,4 @@
-<?php include_once "api/db.php";?>
+<?php include_once "api/db.php"; ?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -50,7 +50,7 @@
                     </div>
                 </div>
                 <div class="dbor" style="margin:3px; width:95%; height:21.5%; line-height:100px;">
-                    <span class="t">進站總人數 : <?=$Total->find(1)['total'];?></span>
+                    <span class="t">進站總人數 : <?= $Total->find(1)['total']; ?></span>
                 </div>
             </div>
             <?php
@@ -60,17 +60,17 @@
             ?>
             <div class="di di ad" style="height:540px; width:23%; padding:0px; margin-left:22px; float:left; ">
                 <!--右邊-->
-                <?php if(!isset($_SESSION['login'])){
-                     ?>
-                <button style="width:90%; margin-left:auto; margin-right:auto; margin-top:2px; height:50px;"
-                    onclick="lo(&#39;?do=login&#39;)">管理登入</button>
-                <?php 
-                    }else{
+                <?php if (!isset($_SESSION['login'])) {
                 ?>
-                <button style="width:100%; margin-left:auto; margin-right:auto; margin-top:2px; height:50px;"
-                    onclick="lo(&#39;admin.php&#39;)">返回管理</button>
-                <?php 
-                    }
+                    <button style="width:90%; margin-left:auto; margin-right:auto; margin-top:2px; height:50px;"
+                        onclick="lo(&#39;?do=login&#39;)">管理登入</button>
+                <?php
+                } else {
+                ?>
+                    <button style="width:90%; margin-left:auto; margin-right:auto; margin-top:2px; height:50px;"
+                        onclick="lo(&#39;admin.php&#39;)">返回管理</button>
+                <?php
+                }
                 ?>
                 <div style="width:80%; height:480px;" class="dbor">
                     <span class="t botli">校園映象區</span>
@@ -89,24 +89,24 @@
                         <img src="./icon/dn.jpg" alt="" srcset="">
                     </div>
                     <script>
-                    var nowpage = 0,
-                        num = 0;
+                        var nowpage = 0,
+                            num = 0;
 
-                    function pp(x) {
-                        var s, t;
-                        if (x == 1 && nowpage - 1 >= 0) {
-                            nowpage--;
+                        function pp(x) {
+                            var s, t;
+                            if (x == 1 && nowpage - 1 >= 0) {
+                                nowpage--;
+                            }
+                            if (x == 2 && (nowpage + 1) * 3 <= num * 1 + 3) {
+                                nowpage++;
+                            }
+                            $(".im").hide()
+                            for (s = 0; s <= 2; s++) {
+                                t = s * 1 + nowpage * 1;
+                                $("#ssaa" + t).show()
+                            }
                         }
-                        if (x == 2 && (nowpage + 1) * 3 <= num * 1 + 3) {
-                            nowpage++;
-                        }
-                        $(".im").hide()
-                        for (s = 0; s <= 2; s++) {
-                            t = s * 1 + nowpage * 1;
-                            $("#ssaa" + t).show()
-                        }
-                    }
-                    pp(1)
+                        pp(1)
                     </script>
 
                 </div>
@@ -115,7 +115,7 @@
         <div style="clear:both;"></div>
         <div
             style="width:1024px; left:0px; position:relative; background:#ddb280; margin-top:4px; height:123px; display:block;">
-            <span class="t" style="line-height:123px;"><?=$Bottom->find(1)['bottom'];?></span>
+            <span class="t" style="line-height:123px;"><?= $Bottom->find(1)['bottom']; ?></span>
         </div>
     </div>
 
