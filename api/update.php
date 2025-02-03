@@ -2,6 +2,10 @@
 
 include_once "db.php";
 
+if(!isset($_POST['id'])){
+    exit();
+   }
+
 $table = $_POST['table'];
 $db = ucfirst($table);
 

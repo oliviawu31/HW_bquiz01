@@ -1,7 +1,7 @@
 ﻿<?php include_once "api/db.php";
 
 if (!isset($_SESSION['login'])) {
-    to("index.php");
+    // to("index.php");
     echo "請從登入頁登入<a href='index.php?do=login'>管理登入</a>";
     exit();
 }
@@ -14,7 +14,6 @@ if(!isset($_SESSION['view'])) {
     $total['total']++;
     $Total->save($total);
 }
-
 
 $total = $Total->find(1)['total'];
 ?>
@@ -79,7 +78,7 @@ $total = $Total->find(1)['total'];
                 </div>
                 <div class="dbor" style="margin:3px; width:95%; height:20%; line-height:100px;">
                     <span class="t">進站總人數 :
-                        <?=$Total->find(1)['total'];?>
+                        <?=$Total->find(1) ['total'];?>
                     </span>
                 </div>
             </div>

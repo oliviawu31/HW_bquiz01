@@ -40,7 +40,7 @@
                     </div>
                     <div class="main_menu">
                         <a style="text-decoration: none;" href="?do=main">
-                            網站首頁
+                            HOME
                         </a>
                         <div class="mw">
                             <a style="text-decoration: none;" href="?do=news">
@@ -60,13 +60,18 @@
             ?>
             <div class="di di ad" style="height:540px; width:23%; padding:0px; margin-left:22px; float:left; ">
                 <!--右邊-->
-                <?php if(!isset($_SESSION['user'])):?>
+                <?php if(!isset($_SESSION['login'])){
+                     ?>
                 <button style="width:90%; margin-left:auto; margin-right:auto; margin-top:2px; height:50px;"
                     onclick="lo(&#39;?do=login&#39;)">管理登入</button>
-                <?php else: ?>
-                <button style="width:90%; margin-left:auto; margin-right:auto; margin-top:2px; height:50px;"
-                    onclick="logout()">管理登出</button>
-                <?php endif ?>
+                <?php 
+                    }else{
+                ?>
+                <button style="width:100%; margin-left:auto; margin-right:auto; margin-top:2px; height:50px;"
+                    onclick="lo(&#39;admin.php&#39;)">返回管理</button>
+                <?php 
+                    }
+                ?>
                 <div style="width:80%; height:480px;" class="dbor">
                     <span class="t botli">校園映象區</span>
                     <div class='cent' id="up" onclick="pp(1)" style="margin-top:10px">

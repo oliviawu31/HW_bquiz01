@@ -3,8 +3,8 @@
     <table width="100%">
         <tbody>
             <tr>
-                <td style="width:90%; height:50px; font-weight:800; border:rgb(109, 64, 32) 1px solid; border-radius:3px;" class="cent"><a
-                        href="?do=admin" style="color: rgb(109, 64, 32); text-decoration:none;">後台管理區</a>
+                <td style="width:90%; height:50px; font-weight:800; border:rgb(109, 64, 32) 1px solid; border-radius:3px;"
+                    class="cent"><a href="?do=admin" style="color: rgb(109, 64, 32); text-decoration:none;">後台管理區</a>
                 </td>
                 <td>
                     <button style="width:90%; height:50px;" onclick="logout()">登出</button>
@@ -12,7 +12,8 @@
             </tr>
         </tbody>
     </table>
-    <div style="width:99%; height:87%; margin:auto; overflow:auto; border:rgb(109, 64, 32) 1px solid; border-radius:3px;">
+    <div
+        style="width:99%; height:87%; margin:auto; overflow:auto; border:rgb(109, 64, 32) 1px solid; border-radius:3px;">
         <p class="t cent botli"> 選單管理</p>
         <form method="post" target="back" action="./api/edit.php">
             <table width="100%">
@@ -29,28 +30,28 @@
                     $rows = $Menu->all();
                     foreach ($rows as $row) {
                     ?>
-                        <tr>
-                            <td>
-                                <input type="text" name="text[]" value="<?= $row['text']; ?>">
-                            </td>
-                            <td>
-                                <input type="text" name="href[]" value="<?= $row['href']; ?>">
-                            </td>
-                            <td>
+                    <tr>
+                        <td>
+                            <input type="text" name="text[]" value="<?= $row['text']; ?>">
+                        </td>
+                        <td>
+                            <input type="text" name="href[]" value="<?= $row['href']; ?>">
+                        </td>
+                        <td>
 
-                            </td>
-                            <td>
-                                <input type="checkbox" name="sh[]" value="<?= $row['sh']; ?>"
-                                    <?= ($row['sh'] == 1) ? 'checked' : ''; ?>>
-                            </td>
-                            <td>
-                                <input type="checkbox" name="del[]" value="<?= $row['id']; ?>">
-                            </td>
-                            <td>
-                                <input type="button" value="編輯次選單">
-                            </td>
-                            <input type="hidden" name="id[]" value="<?= $row['id']; ?>">
-                        </tr>
+                        </td>
+                        <td>
+                            <input type="checkbox" name="sh[]" value="<?= $row['sh']; ?>"
+                                <?= ($row['sh'] == 1) ? 'checked' : ''; ?>>
+                        </td>
+                        <td>
+                            <input type="checkbox" name="del[]" value="<?= $row['id']; ?>">
+                        </td>
+                        <td>
+                            <input type="button" value="編輯次選單">
+                        </td>
+                        <input type="hidden" name="id[]" value="<?= $row['id']; ?>">
+                    </tr>
                     <?php
 
 

@@ -1,6 +1,6 @@
-<?php include_once "./api/logout.php";?>
 <div class="di">
     <!--正中央-->
+    <?php include_once "logout.php";?>
     <table width="100%">
         <tbody>
             <tr>
